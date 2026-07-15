@@ -77,6 +77,7 @@ void GenerateDummyOrders(dp::SampleRepository& sampleRepo, dp::OrderRepository& 
     for (int i = 0; i < count; ++i) {
         dp::Order order;
         order.id = NextId("O", existingCount, i);
+        order.orderNo = orderRepo.GenerateOrderNo();
         order.sampleId = samples[sampleDist(Rng())].id;
         order.customerName = kCustomerNamePool[customerDist(Rng())];
         order.quantity = quantityDist(Rng());
